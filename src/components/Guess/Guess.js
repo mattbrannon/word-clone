@@ -5,8 +5,6 @@ import { checkGuess } from '../../game-helpers';
 
 function Guess({ guess, answer }) {
   const results = checkGuess(guess, answer);
-  console.log(results);
-
   return (
     <p className="guess">
       {range(5).map((index) => {

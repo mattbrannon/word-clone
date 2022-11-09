@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({ submitGuess, gameStatus }) {
+function GuessInput({ submitGuess, gameStatus, handleKeyDown, handleKeyUp }) {
   const [value, setValue] = React.useState('');
 
   const handleSubmitGuess = (e) => {
@@ -20,6 +20,8 @@ function GuessInput({ submitGuess, gameStatus }) {
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value.toUpperCase())}
+        onKeyDown={(e) => handleKeyDown(e.key)}
+        onKeyUp={(e) => handleKeyUp(e.key)}
         minLength={5}
         maxLength={5}
         required
