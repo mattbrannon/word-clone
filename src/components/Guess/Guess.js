@@ -1,13 +1,16 @@
 import React from 'react';
 import { range } from '../../utils';
 import Cell from '../Cell';
+import { checkGuess } from '../../game-helpers';
 
-function Guess({ guess }) {
+function Guess({ guess, answer }) {
+  const results = checkGuess(guess, answer);
+  console.log(results);
+
   return (
     <p className="guess">
       {range(5).map((index) => {
-        const letter = guess ? guess[index] : null;
-        return <Cell key={index} letter={letter} />;
+        return <Cell key={index} index={index} results={results} />;
       })}
     </p>
   );
